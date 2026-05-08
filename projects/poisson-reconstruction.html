@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poisson Surface Reconstruction - Xinzhi Lin</title>
+    <meta name="description" content="Study and 2D MATLAB implementation of Poisson Surface Reconstruction by Xinzhi Lin.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../project-page.css">
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header fade-in-up">
+            <div class="logo"><a href="../index.html">Xinzhi Lin, USTC</a></div>
+            <nav class="nav-links">
+                <a href="../index.html#work">Work</a>
+                <a href="../about.html">About</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../papers.html">Papers</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Project Hero -->
+        <main>
+            <section class="project-hero fade-in-up delay-100">
+                <a href="../index.html#work" class="back-link">&larr; Back to all projects</a>
+                <h1 class="project-page-title">Poisson Surface Reconstruction</h1>
+                <div class="project-meta">
+                    <span class="meta-tag">Algorithm Implementation</span>
+                    <span class="meta-tag">MATLAB</span>
+                    <span class="meta-tag">Point Cloud Processing</span>
+                </div>
+            </section>
+
+            <!-- Cover Image -->
+            <section class="project-cover fade-in-up delay-200">
+                <img src="../assets/projects/poisson-reconstruction/thumbnail.png" alt="MATLAB 2D Poisson Reconstruction Output">
+            </section>
+
+            <!-- Overview -->
+            <section class="project-body fade-in-up delay-200">
+                <div class="project-overview">
+                    <h2>Overview</h2>
+                    <p>In this project, I studied the principles of the paper "Poisson Surface Reconstruction" and conducted some 2D experiments in MATLAB based on these principles. Our goal was to find a suitable method to assign a normal to each point in the input point cloud. The principles provided in the paper are responsible for processing point clouds with normals and generating reconstructed curves/surfaces. I will briefly introduce the principles of this paper below. <br><br><em>Note: This project is still ongoing, and we have not yet found a suitable way to assign normals to all points.</em></p>
+                </div>
+
+                <!-- Method 1 -->
+                <div class="project-section">
+                    <div class="method-number">01</div>
+                    <h2>The Continuous Indicator Function</h2>
+                    <p>The core objective is to compute a 3D indicator function, denoted as $\chi_M$, which equals 1 inside the solid model and 0 outside. The mathematical gradient of this function, $\nabla\chi_M$, is exactly zero everywhere except at the surface boundary. At the boundary, the gradient acts as a vector field pointing inward, perfectly matching the inward surface normal $\vec{N}_{\partial M}(p)$.</p>
+                </div>
+
+                <!-- Method 2 -->
+                <div class="project-section">
+                    <div class="method-number">02</div>
+                    <h2>Applying the Smoothing Filter</h2>
+                    <p>Because a raw, step-like indicator function yields infinite gradient values at the surface, we must convolve it with a continuous smoothing filter $\tilde{F}$. The paper proves that the gradient of this smoothed indicator function precisely equals the smoothed surface normal field:</p>
+                    <p>$$\nabla(\chi_{M}*\tilde{F})(q_{0})=\int_{\partial M}\tilde{F}_{p}(q_{0})\vec{N}_{\partial M}(p)dp$$</p>
+                </div>
+
+                <!-- Method 3 -->
+                <div class="project-section">
+                    <div class="method-number">03</div>
+                    <h2>Discrete Approximation from Point Clouds</h2>
+                    <p>We do not have the continuous surface geometry $\partial M$ to calculate this integral. Instead, we use the input point cloud $S$. By assigning a small area weight $|\mathcal{P}_{s}|$ to each sampled point $s$, we approximate the continuous integral as a discrete summation. This yields a computable vector field $\vec{V}(q)$ based on the input normals $s.\vec{N}$:</p>
+                    <p>$$\vec{V}(q)\equiv\sum_{s\in S}|\mathcal{P}_{s}|\tilde{F}_{s.p}(q)s.\vec{N}$$</p>
+                </div>
+
+                <!-- Method 4 -->
+                <div class="project-section">
+                    <div class="method-number">04</div>
+                    <h2>The Spatial Poisson Problem</h2>
+                    <p>We now seek a scalar function $\tilde{\chi}$ whose gradient optimally matches our approximated vector field $\vec{V}$. Because $\vec{V}$ is constructed from noisy, discrete data, it is not perfectly integrable (not curl-free). We apply the divergence operator ($\nabla\cdot$) to both sides to find the best least-squares scalar potential. This forms the central Poisson equation of the algorithm:</p>
+                    <p>$$\Delta\tilde{\chi}=\nabla\cdot\vec{V}$$</p>
+                </div>
+
+                <!-- Method 5 -->
+                <div class="project-section">
+                    <div class="method-number">05</div>
+                    <h2>Isosurface (Contour) Extraction</h2>
+                    <p>After solving the Poisson equation for the scalar field $\tilde{\chi}$, we must define the final geometric boundary. We evaluate $\tilde{\chi}$ at all original sample positions and compute their arithmetic average to define a specific isovalue $\gamma$:</p>
+                    <p>$$\gamma=\frac{1}{|S|}\sum_{s\in S}\tilde{\chi}(s.p)$$</p>
+                    <p>The final reconstructed curve or surface is extracted by finding the exact contour where the scalar field equals this specific $\gamma$ value.</p>
+                </div>
+
+                <!-- Download Section -->
+                <div class="project-downloads">
+                    <h2>Downloads & Resources</h2>
+                    <div class="download-links">
+                        <a href="../assets/projects/poisson-reconstruction/Poisson Surface Reconstruction.pdf" class="btn btn-secondary download-btn" target="_blank" rel="noopener noreferrer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                            Paper (PDF)
+                        </a>
+                        <a href="../assets/projects/poisson-reconstruction/InterimResults260211.pdf" class="btn btn-secondary download-btn" target="_blank" rel="noopener noreferrer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                            Interim Results 02/11 (PDF)
+                        </a>
+                        <a href="../assets/projects/poisson-reconstruction/InterimResults260304.pdf" class="btn btn-secondary download-btn" target="_blank" rel="noopener noreferrer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                            Interim Results 03/04 (PDF)
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="project-nav fade-in-up delay-300">
+                <a href="irregular-surfaces.html" class="nav-prev">&larr; Previous Project</a>
+                <a href="mean-curvature-flow.html" class="nav-next">Next Project &rarr;</a>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer fade-in-up delay-300">
+            <div class="copyright">&copy; 2026 Xinzhi Lin. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="https://github.com/ClevelandFG" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
