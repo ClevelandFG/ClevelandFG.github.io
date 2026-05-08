@@ -10,12 +10,12 @@
 <body>
     <div class="container">
         <!-- Header -->
-        <header class="header fade-in-up">
+        <header class="header reveal">
             <div class="logo">Xinzhi Lin, University of Science and Technology of China</div>
             <nav class="nav-links">
                 <a href="#work">Work</a>
                 <a href="about.html">About</a>
-                <a href="blog.html">Blog</a>
+                <a href="blogs.html">Blogs</a>
                 <a href="papers.html">Papers</a>
                 <a href="contact.html">Contact</a>
             </nav>
@@ -23,17 +23,17 @@
 
         <!-- Hero Section -->
         <main>
-            <section class="section hero-section fade-in-up delay-100">
+            <section class="section hero-section reveal">
                 <h1 class="hero-headline">Hi, I'm Xinzhi Lin.</h1>
                 <p class="hero-subheadline">I am an undergraduate student at the University of Science and Technology of China.</p>
                 <a href="#work" class="btn btn-primary">View My Work</a>
             </section>
 
             <!-- Projects Section -->
-            <section id="work" class="section fade-in-up delay-200">
+            <section id="work" class="section">
                 <div class="grid grid-cols-3">
                     <!-- Project 1 -->
-                    <article class="project-card">
+                    <article class="project-card reveal">
                         <a href="projects/irregular-surfaces.html">
                             <img class="project-card-img" src="assets/projects/irregular-surfaces/thumbnail.png" alt="Irregular parameter domain surface construction">
                         </a>
@@ -45,7 +45,7 @@
                     </article>
 
                     <!-- Project 2 -->
-                    <article class="project-card">
+                    <article class="project-card reveal">
                         <a href="projects/poisson-reconstruction.html">
                             <img class="project-card-img" src="assets/projects/poisson-reconstruction/thumbnail.png" alt="Poisson Surface Reconstruction in MATLAB">
                         </a>
@@ -57,21 +57,21 @@
                     </article>
 
                     <!-- Project 3 -->
-                    <article class="project-card">
-                        <div class="project-image-placeholder">
-                            [Image Placeholder]
-                        </div>
+                    <article class="project-card reveal">
+                        <a href="projects/mean-curvature-flow.html">
+                            <img class="project-card-img" src="assets/projects/mean-curvature-flow/thumbnail.png" alt="Mean Curvature Flow using PWoS">
+                        </a>
                         <div class="project-content">
                             <h3 class="project-title">Mean Curvature Flow using PWoS</h3>
                             <p class="project-desc">In this project, I researched mainstream mean curvature flow methods and attempted to implement mean curvature flow in Houdini using PWoS.</p>
-                            <a href="#" class="btn btn-secondary">coming soon</a>
+                            <a href="projects/mean-curvature-flow.html" class="btn btn-secondary">Read More</a>
                         </div>
                     </article>
                 </div>
             </section>
 
             <!-- CTA Section -->
-            <section class="section fade-in-up delay-300">
+            <section class="section reveal">
                 <div class="cta-section">
                     <h2 class="cta-headline">Let's build something together</h2>
                     <a href="contact.html" class="btn btn-secondary">Get in touch</a>
@@ -80,12 +80,34 @@
         </main>
 
         <!-- Footer -->
-        <footer class="footer fade-in-up delay-300">
+        <footer class="footer reveal">
             <div class="copyright">&copy; 2026 Xinzhi Lin. All rights reserved.</div>
             <div class="footer-links">
                 <a href="https://github.com/ClevelandFG" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries, observer) => {
+                const intersectingEntries = entries.filter(entry => entry.isIntersecting);
+                
+                intersectingEntries.forEach((entry, index) => {
+                    const el = entry.target;
+                    // Stagger delay for elements appearing simultaneously
+                    el.style.transitionDelay = `${index * 100}ms`;
+                    // Trigger reflow to ensure transition runs
+                    void el.offsetWidth;
+                    el.classList.add('active');
+                    observer.unobserve(el);
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>

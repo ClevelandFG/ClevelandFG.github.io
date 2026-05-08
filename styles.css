@@ -259,6 +259,18 @@ img {
 /* ==========================================================================
    Animations
    ========================================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 600ms cubic-bezier(0.4, 0.0, 0.2, 1), transform 600ms cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Legacy animations for other pages */
 .fade-in-up {
   opacity: 0;
   transform: translateY(20px);
@@ -272,7 +284,6 @@ img {
   }
 }
 
-/* Delay modifiers for staggered animations */
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }

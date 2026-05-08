@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Xinzhi Lin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project-page.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header reveal">
+            <div class="logo"><a href="index.html">Xinzhi Lin, USTC</a></div>
+            <nav class="nav-links">
+                <a href="index.html#work">Work</a>
+                <a href="about.html">About</a>
+                <a href="blogs.html">Blogs</a>
+                <a href="papers.html">Papers</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="project-hero reveal" style="min-height: 50vh; display: flex; flex-direction: column; justify-content: center;">
+                <h1 class="project-page-title">Get in Touch</h1>
+                <p style="margin-top: 20px; font-size: 1.2rem; color: var(--color-text-secondary); max-width: 600px;">
+                    I'm always open to discussing new opportunities, exchanging ideas, or simply chatting about mathematics and computer graphics! Feel free to reach out—I'd love to hear from you.
+                </p>
+                <div style="margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap;">
+                    <a href="mailto:your.email@example.com" class="btn btn-primary" style="font-size: 1.1rem;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Email Me
+                    </a>
+                    <a href="https://github.com/ClevelandFG" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 1.1rem;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        GitHub Profile
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer reveal">
+            <div class="copyright">&copy; 2026 Xinzhi Lin. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="https://github.com/ClevelandFG" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries, observer) => {
+                const intersectingEntries = entries.filter(entry => entry.isIntersecting);
+                
+                intersectingEntries.forEach((entry, index) => {
+                    const el = entry.target;
+                    // Stagger delay for elements appearing simultaneously
+                    el.style.transitionDelay = `${index * 100}ms`;
+                    // Trigger reflow to ensure transition runs
+                    void el.offsetWidth;
+                    el.classList.add('active');
+                    observer.unobserve(el);
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

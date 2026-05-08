@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master AI with a 'Cloze Test' Mindset - Xinzhi Lin</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../project-page.css">
+    <style>
+        .blog-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--color-text);
+        }
+        .blog-content h2 {
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-light);
+            font-size: 1.8rem;
+        }
+        .blog-content p {
+            margin-bottom: 1.5rem;
+        }
+        .blog-content blockquote {
+            border-left: 4px solid var(--color-secondary);
+            padding-left: 20px;
+            margin-left: 0;
+            color: var(--color-text-light);
+            font-style: italic;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            border-radius: 4px;
+        }
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header fade-in-up">
+            <div class="logo"><a href="../index.html">Xinzhi Lin, USTC</a></div>
+            <nav class="nav-links">
+                <a href="../index.html#work">Work</a>
+                <a href="../about.html">About</a>
+                <a href="../blogs.html" class="active">Blogs</a>
+                <a href="../papers.html">Papers</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="project-hero fade-in-up delay-100">
+                <a href="../blogs.html" class="back-link">&larr; Back to all blogs</a>
+                <h1 class="project-page-title">用“完形填空”思维搞定AI，效率直接起飞！</h1>
+                <div class="project-meta">
+                    <span class="meta-tag">AI Prompting</span>
+                    <span class="meta-tag">Efficiency</span>
+                </div>
+            </section>
+
+            <section class="project-body fade-in-up delay-200">
+                <div class="blog-content">
+                    <p>大家平时用AI的时候，有没有经历过那种“我解释不清，它也听不懂”的崩溃瞬间？是不是也经常觉得，每次跟AI提需求，就像在开盲盒，出来的结果总是差强人意？其实啊，很多时候不是AI不够聪明，而是我们提问的姿势不对。今天就给大家分享一个我自己经常在用的小窍门——“完形填空”思维。没错，就是咱们上中学时最常做的那种英语填空题，把它用在AI上，简直打开了新世界的大门。</p>
+
+                    <h2>什么是完形填空思维？</h2>
+                    <p>咱们平时用AI，习惯自己从头到尾把要求写清楚。但如果你碰到知识盲区怎么办？这时候，你就得让AI来引导你。简单来说，当你遇到一个自己完全不了解的新领域时，千万别硬着头皮去从零开始编提示词。正确的姿势是“反客为主”：让AI先给你提供一个高质量的模板，并且告诉你它需要哪些具体细节，然后你只需要像做完形填空一样，把你的需求填进去，然后再发回给AI就行了。</p>
+
+                    <p>举个例子。我想创建你正在浏览的这个个人网站，但我对个人网站应该长啥样一无所知——有哪些主流框架、应该用什么语言、怎么设计UI、应该包含哪些版块……如果我直接对AI说：</p>
+                    <blockquote>给我写个个人网站</blockquote>
+                    <p>AI大概率会给我一堆假大空的框架，界面也丑得很、经典的蓝紫色AI审美。于是我换了个思路，干脆让AI当我的采访者：</p>
+                    <blockquote>你给我列一个常见个人网站的结构模板，然后你来提问，我来提供素材。</blockquote>
+                    <p>结果它非常听话地给出了清晰的指引，我只要按部就班地填入我的内容，就像做完形填空一样，轻轻松松就得到了非常满意的结果。</p>
+
+                    <h2>让AI自己写提示词</h2>
+                    <p>运用这个思维，还可以自然地引申出一种思路：让AI自己写提示词。举个例子，我想得到一张奔跑的马，此时我的脑海里肯定已经有了一个特定的想象，但如果我只给AI一句很笼统的提示词：</p>
+                    <blockquote>画一匹奔跑的马</blockquote>
+                    <p>出图效果通常会既平庸、又与我的想象大相径庭，无法直接使用，还需要你反复地纠正、修改、返工，非常浪费时间。就像这样，尽管质量已经很高了（笑）：</p>
+                    
+                    <img src="../assets/blog/Master%20AI%20with%20a%20'Cloze%20Test'%20Mindset%20and%20Boost%20Efficiency/figures/running-horse-before-cloze-test.png" alt="原生提示词生成的图片">
+
+                    <p>但如果用了完形填空思维，你可以先让AI给你生成一个“高质量奔跑马匹”的提示词模板：</p>
+                    <blockquote>我想借助AI生成一幅奔跑中的马的图片，你不需要为我生成，只需要向我提供一份高质量的提示词模板，使我能够准确描述我所想象的所有细节、AI能充分理解我的意图，模板的每个空位需要提供至少3种典型的选项</blockquote>
+                    
+                    <p>然后你就可以得到类似这样的回答：</p>
+                    <blockquote>
+                        <p>这是一份专为AI绘画工具设计的纯文本格式的高质量提示词模板。你可以根据这个公式，将下面提供的选项填入对应的括号中，也可以自由发挥。</p>
+                        <p>奔跑的马 AI提示词万能公式模板：</p>
+                        <p>A [艺术风格与材质] of a [马的品种与毛色] running [动作状态与奔跑姿态], [马匹细节与特征]. The background is [环境与场景] during [时间与天气]. [光影效果]. Shot with [镜头角度与构图]. The overall atmosphere is [情感与氛围描述]. Masterpiece, best quality, ultra-detailed, 8k resolution.</p>
+                        <p>（中文对照：一幅 [艺术风格与材质]，一匹 [马的品种与毛色] 正在 [动作状态与奔跑姿态]，[马匹细节与特征]。背景是 [环境与场景] 在 [时间与天气]。[光影效果]。采用 [镜头角度与构图] 拍摄。整体氛围 [情感与氛围描述]。杰作，最高画质，超高细节，8K分辨率。）</p>
+                        <p>填空选项库（每个插槽提供至少3种典型选择）：<br>
+                        [艺术风格与材质]<br>
+                        选项 A：Hyper-realistic National Geographic photography（超写实的国家地理摄影）<br>
+                        选项 B：Epic fantasy digital painting, Concept art（史诗奇幻数字绘画，概念艺术）<br>
+                        选项 C：Cinematic 3D render, Unreal Engine 5, Octane render（电影级3D渲染，虚幻引擎5，辛烷渲染）<br>
+                        选项 D：Classical oil painting in the style of Edgar Degas（埃德加·德加风格的古典油画）</p>
+                    </blockquote>
+
+                    <p>然后我拿到这个模板后去做完形填空，比如我填了这样的提示词并喂给AI：</p>
+                    <blockquote>A Hyper-realistic National Geographic photography of a Golden Akhal-Teke horse galloping at full speed with all four hooves off the ground, splashing dust with every heavy step, wearing an ornate vintage leather saddle. The background is an arid and dusty canyon terrain during a breathtaking golden hour sunset. Moody volumetric lighting piercing through the clouds. Shot with Panning tracking shot from the side with intense motion blur on the background. The overall atmosphere is serene, poetic, sacred and majestic. Masterpiece, best quality, ultra-detailed, 8k resolution.</blockquote>
+                    
+                    <p>然后得到了这样的图片：</p>
+                    <img src="../assets/blog/Master%20AI%20with%20a%20'Cloze%20Test'%20Mindset%20and%20Boost%20Efficiency/figures/running-horse-after-cloze-test.png" alt="新提示词生成的图片">
+
+                    <p>感觉一下子就有内味了是不是？不仅氛围和谐、细节饱满，整体质感也没那么廉价了。</p>
+
+                    <h2>总结</h2>
+                    <p>总结一下，当你遇到开放性的问题，或者对某个领域知之甚少的时候，与其用空洞、笼统的提示词去指导AI，然后再不停地返工，不妨试试完形填空思维——让AI搭骨架、你只负责填血肉，真的能节省很多时间。下次不知道怎么写提示词的时候，赶紧试试这招吧！</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer fade-in-up delay-300">
+            <div class="copyright">&copy; 2026 Xinzhi Lin. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="https://github.com/ClevelandFG" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

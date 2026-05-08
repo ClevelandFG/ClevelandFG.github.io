@@ -29,9 +29,11 @@ Prioritize clarity, accessibility, and extreme minimalism. The design should fee
     * *Secondary Button:* Transparent background with a subtle gray border and near-black text.
 * **Navigation:** Ultra-minimalist top bar. Text-only links with plenty of spacing.
 
-**5. Motion & Interaction (Sliding Speed & Animations)**
-* **Easing Curve:** All animations must use standard Material Design easing for a natural, snappy feel. Use CSS: `cubic-bezier(0.4, 0.0, 0.2, 1)`. 
-* **Speed/Duration:** * Micro-interactions (button hovers, color changes): Swift, ~`150ms` to `200ms`.
-    * Sliding/Page load animations (fade-ins, sliding up): Smooth and deliberate, ~`300ms` to `400ms`.
-* **Entry Animations:** Elements should lightly "fade in and slide up" (translateY from 20px to 0px) as the user scrolls them into view.
-* **Background Movement:** If using particles or abstract shapes (like the Antigravity screenshot), make them float at an incredibly slow, almost imperceptible speed to avoid distracting from the text.
+### Revised Module 5: Motion & Interaction
+
+* **Easing Curve:** All animations must use standard Material Design easing for a natural, frictionless feel. Use CSS: `cubic-bezier(0.4, 0.0, 0.2, 1)`.
+* **Micro-interaction Duration:** Keep button hovers and state changes swift, around `150ms` to `200ms`.
+* **Scroll Reveal Duration:** Make sliding page load animations smooth and deliberate, around `600ms` to `800ms`.
+* **Scroll-Triggered Entry:** Do not load all elements on page load. Use `IntersectionObserver` (or equivalent scroll-tracking logic) to trigger animations only when the element enters the user's viewport.
+* **The "Google Reveal":** Initial states should be `opacity: 0` and `transform: translateY(40px)`. The active state should smoothly shift to `opacity: 1` and `transform: translateY(0)`.
+* **Staggered Loading:** When a section contains multiple sibling elements (e.g., a row of three feature cards), never animate them simultaneously. Apply a staggered transition delay (e.g., `100ms`, `200ms`, `300ms`) to create a cascading, sequential reveal as the user scrolls.
