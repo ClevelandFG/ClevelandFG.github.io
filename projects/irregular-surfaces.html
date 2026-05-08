@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irregular Parameter Domains - Xinzhi Lin</title>
+    <meta name="description" content="Construction and application of surfaces and bodies on irregular parameter domains — a research survey by Xinzhi Lin.">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../project-page.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header fade-in-up">
+            <div class="logo"><a href="../index.html">Xinzhi Lin, USTC</a></div>
+            <nav class="nav-links">
+                <a href="../index.html#work">Work</a>
+                <a href="../about.html">About</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../papers.html">Papers</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Project Hero -->
+        <main>
+            <section class="project-hero fade-in-up delay-100">
+                <a href="../index.html#work" class="back-link">&larr; Back to all projects</a>
+                <h1 class="project-page-title">Construction and Application of Surfaces and Bodies on Irregular Parameter Domains</h1>
+                <div class="project-meta">
+                    <span class="meta-tag">Research Survey</span>
+                    <span class="meta-tag">Geometric Modeling</span>
+                    <span class="meta-tag">Bézier Surfaces</span>
+                </div>
+            </section>
+
+            <!-- Cover Image -->
+            <section class="project-cover fade-in-up delay-200">
+                <img src="../assets/projects/irregular-surfaces/thumbnail.png" alt="Geometric surface construction examples showing wireframe, shaded, and textured 3D models">
+            </section>
+
+            <!-- Overview -->
+            <section class="project-body fade-in-up delay-200">
+                <div class="project-overview">
+                    <h2>Overview</h2>
+                    <p>This project analyzes the construction and application of geometric surfaces and volumes over irregular domains. It addresses three primary methodologies drawn from cutting-edge research papers.</p>
+                </div>
+
+                <!-- Method 1 -->
+                <div class="project-section">
+                    <div class="method-number">01</div>
+                    <h2>Blending Bézier Patches for Multi-Sided Surface Modeling</h2>
+                    <p>The principle involves filling <em>n</em>-sided holes while maintaining G<sup>1</sup> or G<sup>2</sup> continuity. The process begins by constructing a spider-web control net for <em>n</em>-sided domains. Next, it establishes corner control nets for each vertex through coordinate averaging. The system then applies local constrained sweep parameterization for each edge. Finally, it calculates Gregory corner blending functions to merge the individual patches.</p>
+                </div>
+
+                <!-- Method 2 -->
+                <div class="project-section">
+                    <div class="method-number">02</div>
+                    <h2>Generalized Bézier Volumes over Simple Convex Polyhedra</h2>
+                    <p>The principle targets full volumetric representation for isogeometric analysis and additive manufacturing. The process starts with building a polyhedral control net composed of overlapping semi-tensor product nets. It then defines local parameterization using 3D Wachspress coordinates. Following this, the method assigns face and edge weights to Bernstein polynomials. It allocates these weighted polynomials across distinct control points. The final step constructs face Bézier ribbons and assembles them into the complete generalized volume.</p>
+                </div>
+
+                <!-- Method 3 -->
+                <div class="project-section">
+                    <div class="method-number">03</div>
+                    <h2>C<sup>0</sup> Generalized Coons Patches for High-Order Cage Deformation</h2>
+                    <p>The principle seeks to provide flexible deformation across arbitrary, non-manifold topologies. The process reparameterizes standard Coons patches utilizing generalized barycentric coordinates. It extends this formulation from four-sided domains to <em>n</em>-sided polygons. The framework further generalizes to high-dimensional and non-manifold spaces. It applies this mapping to update object coordinates, achieving high-order cage-based deformation.</p>
+                </div>
+
+                <!-- Download Section -->
+                <div class="project-downloads">
+                    <h2>Downloads</h2>
+                    <div class="download-links">
+                        <a href="../assets/projects/irregular-surfaces/report.pdf" class="btn btn-secondary download-btn" target="_blank" rel="noopener noreferrer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                            Report (PDF)
+                        </a>
+                        <a href="../assets/projects/irregular-surfaces/report.pptx" class="btn btn-secondary download-btn" target="_blank" rel="noopener noreferrer">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                            Slides (PPTX)
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <section class="project-nav fade-in-up delay-300">
+                <div></div>
+                <a href="poisson-reconstruction.html" class="nav-next">Next Project &rarr;</a>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer fade-in-up delay-300">
+            <div class="copyright">&copy; 2026 Xinzhi Lin. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="https://github.com/ClevelandFG" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

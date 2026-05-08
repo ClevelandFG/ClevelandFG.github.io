@@ -1,0 +1,206 @@
+/* ==========================================================================
+   Project Page Styles
+   ========================================================================== */
+
+/* Back Link */
+.back-link {
+  display: inline-block;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  margin-bottom: 2rem;
+  transition: color var(--duration-swift) var(--easing-standard);
+}
+
+.back-link:hover {
+  color: var(--color-accent-blue);
+}
+
+/* Project Hero */
+.project-hero {
+  padding-top: var(--section-padding-y);
+  padding-bottom: 3rem;
+}
+
+.project-page-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin-bottom: 1.5rem;
+}
+
+/* Meta Tags */
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.meta-tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-pill);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+}
+
+/* Cover Image */
+.project-cover {
+  padding-bottom: 3rem;
+}
+
+.project-cover img {
+  width: 100%;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border);
+  object-fit: cover;
+}
+
+/* Project Body */
+.project-body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: var(--section-padding-y);
+}
+
+.project-overview {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-overview h2 {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.25rem;
+}
+
+.project-overview p {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+}
+
+/* Method Sections */
+.project-section {
+  margin-bottom: 3.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.project-section:last-of-type {
+  border-bottom: none;
+}
+
+.method-number {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-bg-secondary);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.04em;
+  /* Subtle stroke effect so the number is visible but not dominant */
+  -webkit-text-stroke: 1px var(--color-border);
+}
+
+.project-section h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.project-section p {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* Downloads */
+.project-downloads {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.project-downloads h2 {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+}
+
+.download-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.download-btn svg {
+  flex-shrink: 0;
+}
+
+/* Project Navigation (prev / next) */
+.project-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.project-nav a {
+  font-weight: 500;
+  font-size: 1.125rem;
+  transition: color var(--duration-swift) var(--easing-standard);
+}
+
+.project-nav a:hover {
+  color: var(--color-accent-blue);
+}
+
+.nav-next {
+  margin-left: auto;
+}
+
+/* ==========================================================================
+   Project Card Image (shared with index.html)
+   ========================================================================== */
+.project-card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 768px) {
+  .project-page-title {
+    font-size: 1.75rem;
+  }
+
+  .project-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .method-number {
+    font-size: 3rem;
+  }
+
+  .download-links {
+    flex-direction: column;
+  }
+}
